@@ -12,7 +12,7 @@ export default function VideosScreen() {
         <View style={styles.content}>
           <Text style={styles.subtitle}>Educational Content</Text>
           <Text style={styles.description}>
-            Watch informative videos about health topics, exercise routines, and wellness tips.
+            Coming Soon...
           </Text>
         </View>
       </ScrollView>
