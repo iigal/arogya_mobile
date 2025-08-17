@@ -1,29 +1,39 @@
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CategoryCard from '../components/CategoryCard';
+import CategoryCard from '../../components/CategoryCard';
+import { useRouter } from "expo-router";
 
-// Assume you have these icons, replace with your actual icon components or image files
-import ChildHealthIcon from '../assets/icons/child_health.svg';
-import FirstAidIcon from '../assets/icons/first_aid.svg';
-import HygieneIcon from '../assets/icons/hygiene.svg';
-import MentalHealthIcon from '../assets/icons/mental_health.svg';
-import NutritionIcon from '../assets/icons/nutrition.svg';
-import ProfileIcon from '../assets/icons/profile.svg';
-import SearchIcon from '../assets/icons/search.svg';
-import SeasonalDiseasesIcon from '../assets/icons/seasonal_diseases.svg';
+// SVG Icon imports
+import ChildHealthIcon from '../../assets/icons/child_health.svg';
+import FirstAidIcon from '../../assets/icons/first_aid.svg';
+import HygieneIcon from '../../assets/icons/hygiene.svg';
+import MentalHealthIcon from '../../assets/icons/mental_health.svg';
+import NutritionIcon from '../../assets/icons/nutrition.svg';
+import ProfileIcon from '../../assets/icons/profile.svg';
+import SearchIcon from '../../assets/icons/search.svg';
+import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
 
 
 const categories = [
-  { name: 'Nutrition', icon: <NutritionIcon width={40} height={40} /> },
-  { name: 'Hygiene', icon: <HygieneIcon width={40} height={40} /> },
-  { name: 'Child Health', icon: <ChildHealthIcon width={40} height={40} /> },
-  { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} /> },
-  { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} /> },
-  { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} /> },
+  { name: 'Nutrition', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
+  { name: 'Complain/Feedback', icon: <HygieneIcon width={40} height={40} stroke="#2196F3" strokeWidth="2" fill="none" /> },
+  { name: 'Child Health', icon: <ChildHealthIcon width={40} height={40} stroke="#FF9800" strokeWidth="2" fill="none" /> },
+  { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} stroke="#9C27B0" strokeWidth="2" fill="none" /> },
+  { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
+  { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
 ];
 
 export default function HomeScreen() {
+  const router = useRouter();
+
+  const handleCategoryPress = (categoryName: string) => {
+    if (categoryName === 'Complain/Feedback') {
+      router.push('../complain/complainAndFeedback');
+    }
+    // Add other category navigation here as needed
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -37,23 +47,29 @@ export default function HomeScreen() {
           <TouchableOpacity style={styles.languageButton}>
             <Text style={styles.languageText}>ने/En</Text>
           </TouchableOpacity>
+
         </View>
 
         {/* Promotion Banner */}
         <View style={styles.promoBanner}>
-            <Image 
-                source={require('../assets/images/promo.png')} 
-                style={styles.promoImage}
-                resizeMode="contain" 
-            />
-            <Text style={styles.promoText}>स्वस्थ जीवनशैली अपनाउनुहोस्।</Text>
+          <Image
+            source={require('../../assets/images/promo.png')}
+            style={styles.promoImage}
+            resizeMode="contain"
+          />
+          <Text style={styles.promoText}>स्वस्थ जीवनशैली अपनाउनुहोस्।</Text>
         </View>
 
         {/* Categories */}
         <Text style={styles.categoryTitle}>Health Features</Text>
         <View style={styles.categoryGrid}>
           {categories.map((category) => (
-            <CategoryCard key={category.name} icon={category.icon} name={category.name} />
+            <CategoryCard 
+              key={category.name} 
+              icon={category.icon} 
+              name={category.name}
+              onPress={() => handleCategoryPress(category.name)}
+            />
           ))}
         </View>
       </ScrollView>
