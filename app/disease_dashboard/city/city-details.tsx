@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import { mockData } from '@/constants/Data';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter, useLocalSearchParams } from 'expo-router';
-import CityDropdown from '../../../components/CityDropdown';
-import { Colors } from '../../../constants/Colors';
-import { mockData } from '../../../constants/Data';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function CityDetails() {
   const router = useRouter();
