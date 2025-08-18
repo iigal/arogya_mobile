@@ -1,3 +1,5 @@
+import { API_ENDPOINTS } from "@/config/api"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import axios from "axios"
 import { VaccineRecord, vaccineRecordSchema } from "../types/Types"
 
@@ -12,10 +14,16 @@ const buildQuery = (params: Record<string, any>): string => {
 
 export const getVaccineRecords = async (query: Record<string, any>): Promise<VaccineRecord[]> => {
 
+  const token = await AsyncStorage.getItem("token")
+  if (!token) {
+    return []
+  }
+  const tokenWithoutSpaces = token.replace(/[\n\s]+/g, '')
+
   try {
-    const response = await axios.get(`${process.env.EXPO_PUBLIC_BACKEND_URL}/api/vaccinations/${buildQuery(query)}`, {
+    const response = await axios.get(`${API_ENDPOINTS.VACCINATIONS}`, {
       headers: {
-        "Authorization": `Bearer ${process.env.EXPO_PUBLIC_ACCESS_TOKEN}`,
+        "Authorization": `Bearer ${tokenWithoutSpaces}`,
       },
     })
     return response.data.map((record: VaccineRecord) => vaccineRecordSchema.parse(record))

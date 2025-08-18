@@ -1,13 +1,21 @@
+import { API_ENDPOINTS } from "@/config/api"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import axios from "axios"
 import { UpcomingVaccine, upcomingVaccineSchema } from "../types/Types"
 
 
 export const getUpcomingVaccines = async (): Promise<UpcomingVaccine[]> => {
 
+  const token = await AsyncStorage.getItem("token")
+  if (!token) {
+    return []
+  }
+  const tokenWithoutSpaces = token.replace(/[\n\s]+/g, '')
+
   try {
-    const response = await axios.get(`${process.env.EXPO_PUBLIC_BACKEND_URL}/api/vaccinations/notifications/`, {
+    const response = await axios.get(`${API_ENDPOINTS.VACCINATION_NOTIFICATIONS}`, {
       headers: {
-        "Authorization": `Bearer ${process.env.EXPO_PUBLIC_ACCESS_TOKEN}`,
+        "Authorization": `Bearer ${tokenWithoutSpaces}`,
       },
     })
     return response.data.map((record: UpcomingVaccine) => upcomingVaccineSchema.parse(record))
