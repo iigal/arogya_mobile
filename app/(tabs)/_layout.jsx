@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Tabs, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, View } from 'react-native';
@@ -48,12 +47,20 @@ export default function TabLayout() {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const token = await AsyncStorage.getItem("token");
-        if (token) {
-          setInitialRoute("/(tabs)"); // set default screen
-        } else {
-          setInitialRoute("/login");
-        }
+        // This was added to fix the issue of the app crashing when the user is not logged in
+        // TODO: Remove this once the everyone has server access
+        
+        setInitialRoute("/(tabs)"); 
+        return;
+
+        // Uncomment this once the everyone has server access
+        
+        // const token = await AsyncStorage.getItem("token");
+        // if (token) {
+        //   setInitialRoute("/(tabs)"); // set default screen
+        // } else {
+        //   setInitialRoute("/login");
+        // }
       } catch (error) {
         console.log("Error checking login status:", error);
       } finally {
