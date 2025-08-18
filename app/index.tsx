@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import CategoryCard from '../components/CategoryCard';
 
 // SVG Icon imports
-import ChildHealthIcon from '../assets/icons/child_health.svg';
 import FirstAidIcon from '../assets/icons/first_aid.svg';
 import HygieneIcon from '../assets/icons/hygiene.svg';
 import MedicineReminder from '../assets/icons/medicine_reminder.svg';
@@ -15,13 +14,14 @@ import ProfileIcon from '../assets/icons/profile.svg';
 import SearchIcon from '../assets/icons/search.svg';
 import SeasonalDiseasesIcon from '../assets/icons/seasonal_diseases.svg';
 import VaccineIcon from '../assets/icons/vaccine.svg';
+import DoctorsIcon from '../assets/icons/doctors.svg';
 import promo from '../assets/images/promo.png';
 
 
 const categories = [
   { name: 'Nutrition', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
   { name: 'Complain/Feedback', icon: <HygieneIcon width={40} height={40} stroke="#2196F3" strokeWidth="2" fill="none" /> },
-  { name: 'Child Health', icon: <ChildHealthIcon width={40} height={40} stroke="#FF9800" strokeWidth="2" fill="none" /> },
+  { name: 'Doctors', icon: <DoctorsIcon width={40} height={40} /> },
   { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} stroke="#9C27B0" strokeWidth="2" fill="none" /> },
   { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
   { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
@@ -39,6 +39,8 @@ export default function HomeScreen() {
       router.push("../MedicineReminderApp/screens/HomeScreen");
     } else if (categoryName === "Vaccine") {
       router.push("./vaccine/");
+    } else if (categoryName === 'Doctors') {
+      router.push('./doctors/');
     }
     // Add other category navigation here as needed
   };
