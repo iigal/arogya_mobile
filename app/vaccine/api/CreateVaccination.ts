@@ -1,12 +1,20 @@
+import { API_ENDPOINTS } from "@/config/api"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import axios from "axios"
 import { VaccineRecord } from "../types/Types"
 
 export const createVaccination = async (data: VaccineRecord): Promise<void> => {
 
+  const token = await AsyncStorage.getItem("token")
+  if (!token) {
+    return
+  }
+  const tokenWithoutSpaces = token.replace(/[\n\s]+/g, '')
+
   try {
-    await axios.post(`${process.env.EXPO_PUBLIC_BACKEND_URL}/api/vaccinations/`, data, {
+    await axios.post(`${API_ENDPOINTS.VACCINATIONS}`, data, {
       headers: {
-        "Authorization": `Bearer ${process.env.EXPO_PUBLIC_ACCESS_TOKEN}`,
+        "Authorization": `Bearer ${tokenWithoutSpaces}`,
       },
     })
   } catch (error) {

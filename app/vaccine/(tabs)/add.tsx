@@ -1,30 +1,30 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-  Modal,
-} from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
 import { Ionicons } from "@expo/vector-icons"
 import { router } from "expo-router"
+import { useEffect, useState } from "react"
+import {
+  Alert,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { createVaccination } from "../api/CreateVaccination"
 import { getVaccines } from "../api/GetVaccines"
 import { Vaccine, VaccineRecord } from "../types/Types"
-import { createVaccination } from "../api/CreateVaccination"
 
 function formatDate(date: string): string {
-  var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear();
+  const d = new Date(date)
+  let month = '' + (d.getMonth() + 1)
+  let day = '' + d.getDate()
+  let year = d.getFullYear()
 
   if (month.length < 2) 
       month = '0' + month;
@@ -78,7 +78,7 @@ export default function AddVaccineScreen() {
 
     try {
       setTimeout(() => {
-        router.push("/(tabs)")
+        router.push("/vaccine")
       }, 200)
     } catch (error) {
       console.error("Error saving record:", error)

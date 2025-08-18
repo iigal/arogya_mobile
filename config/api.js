@@ -24,6 +24,9 @@ export const API_ENDPOINTS = {
   SIGNUP: `${API_BASE_URL}/api/signup/`,
   COMPLAINS: `${API_BASE_URL}/api/complains/`,
   HEALTH: `${API_BASE_URL}/api/health/`,
+  VACCINATIONS: `${API_BASE_URL}/api/vaccinations/`,
+  VACCINES: `${API_BASE_URL}/api/vaccines/`,
+  VACCINATION_NOTIFICATIONS: `${API_BASE_URL}/api/vaccinations/notifications/`,
 };
 
 export default API_BASE_URL;

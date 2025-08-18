@@ -1,21 +1,23 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from "expo-router";
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CategoryCard from '../components/CategoryCard';
+import CategoryCard from '../../components/CategoryCard';
 
 // SVG Icon imports
-import ChildHealthIcon from '../assets/icons/child_health.svg';
-import FirstAidIcon from '../assets/icons/first_aid.svg';
-import HygieneIcon from '../assets/icons/hygiene.svg';
-import MedicineReminder from '../assets/icons/medicine_reminder.svg';
-import MentalHealthIcon from '../assets/icons/mental_health.svg';
-import NutritionIcon from '../assets/icons/nutrition.svg';
-import ProfileIcon from '../assets/icons/profile.svg';
-import SearchIcon from '../assets/icons/search.svg';
-import SeasonalDiseasesIcon from '../assets/icons/seasonal_diseases.svg';
-import VaccineIcon from '../assets/icons/vaccine.svg';
-import promo from '../assets/images/promo.png';
+import ChildHealthIcon from '../../assets/icons/child_health.svg';
+import FirstAidIcon from '../../assets/icons/first_aid.svg';
+import HygieneIcon from '../../assets/icons/hygiene.svg';
+import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
+import MentalHealthIcon from '../../assets/icons/mental_health.svg';
+import NutritionIcon from '../../assets/icons/nutrition.svg';
+import ProfileIcon from '../../assets/icons/profile.svg';
+import SearchIcon from '../../assets/icons/search.svg';
+import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
+import SignoutIcon from '../../assets/icons/signout.svg';
+import VaccineIcon from '../../assets/icons/vaccine.svg';
+import promo from '../../assets/images/promo.png';
 
 
 const categories = [
@@ -43,6 +45,11 @@ export default function HomeScreen() {
     // Add other category navigation here as needed
   };
 
+  const handleSignout = async () => {
+    await AsyncStorage.removeItem("token");
+    router.push("/login");
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -55,6 +62,10 @@ export default function HomeScreen() {
           </View>
           <TouchableOpacity style={styles.languageButton}>
             <Text style={styles.languageText}>ने/En</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.languageButton}>
+            <Text style={styles.languageText}><SignoutIcon width={20} height={20} onPress={handleSignout} /></Text>
           </TouchableOpacity>
 
         </View>
