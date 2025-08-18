@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
+import CityDropdown from '@/components/CityDropdown';
+import QuickActionGrid from '@/components/QuickActionGrid';
+import SeasonSelector from '@/components/SeasonSelector';
+import { Colors } from '@/constants/Colors';
+import { mockData } from '@/constants/Data';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import SeasonSelector from '../../../components/SeasonSelector';
-import CityDropdown from '../../../components/CityDropdown';
-import QuickActionGrid from '../../../components/QuickActionGrid';
-import { Colors } from '../../../constants/Colors';
-import { mockData } from '../../../constants/Data';
+import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type City = { id: number; name: string; region: string };
 

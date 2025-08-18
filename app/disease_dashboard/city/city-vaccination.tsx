@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
+import { Colors } from '@/constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter, useLocalSearchParams } from 'expo-router';
-import { Colors } from '../../../constants/Colors';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function CityVaccination() {
   const router = useRouter();
