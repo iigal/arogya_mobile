@@ -1,19 +1,21 @@
+import { useRouter } from "expo-router";
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CategoryCard from '../../components/CategoryCard';
-import { useRouter } from "expo-router";
+import CategoryCard from '../components/CategoryCard';
 
 // SVG Icon imports
-import ChildHealthIcon from '../../assets/icons/child_health.svg';
-import FirstAidIcon from '../../assets/icons/first_aid.svg';
-import HygieneIcon from '../../assets/icons/hygiene.svg';
-import MentalHealthIcon from '../../assets/icons/mental_health.svg';
-import NutritionIcon from '../../assets/icons/nutrition.svg';
-import ProfileIcon from '../../assets/icons/profile.svg';
-import SearchIcon from '../../assets/icons/search.svg';
-import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
-import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
+import ChildHealthIcon from '../assets/icons/child_health.svg';
+import FirstAidIcon from '../assets/icons/first_aid.svg';
+import HygieneIcon from '../assets/icons/hygiene.svg';
+import MedicineReminder from '../assets/icons/medicine_reminder.svg';
+import MentalHealthIcon from '../assets/icons/mental_health.svg';
+import NutritionIcon from '../assets/icons/nutrition.svg';
+import ProfileIcon from '../assets/icons/profile.svg';
+import SearchIcon from '../assets/icons/search.svg';
+import SeasonalDiseasesIcon from '../assets/icons/seasonal_diseases.svg';
+import VaccineIcon from '../assets/icons/vaccine.svg';
+import promo from '../assets/images/promo.png';
 
 
 const categories = [
@@ -24,6 +26,7 @@ const categories = [
   { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
   { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Medicine Reminder', icon: <MedicineReminder width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
+  { name: 'Vaccine', icon: <VaccineIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
 ];
 
 export default function HomeScreen() {
@@ -34,6 +37,8 @@ export default function HomeScreen() {
       router.push('../complain/complainAndFeedback');
     } else if (categoryName === "Medicine Reminder") {
       router.push("../MedicineReminderApp/screens/HomeScreen");
+    } else if (categoryName === "Vaccine") {
+      router.push("./vaccine/");
     }
     // Add other category navigation here as needed
   };
@@ -57,7 +62,7 @@ export default function HomeScreen() {
         {/* Promotion Banner */}
         <View style={styles.promoBanner}>
           <Image
-            source={require('../../assets/images/promo.png')}
+            source={promo}
             style={styles.promoImage}
             resizeMode="contain"
           />
