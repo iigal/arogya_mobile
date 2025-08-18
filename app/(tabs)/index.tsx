@@ -13,6 +13,7 @@ import NutritionIcon from '../../assets/icons/nutrition.svg';
 import ProfileIcon from '../../assets/icons/profile.svg';
 import SearchIcon from '../../assets/icons/search.svg';
 import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
+import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
 
 
 const categories = [
@@ -22,6 +23,7 @@ const categories = [
   { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} stroke="#9C27B0" strokeWidth="2" fill="none" /> },
   { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
   { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
+  { name: 'Medicine Reminder', icon: <MedicineReminder width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
 ];
 
 export default function HomeScreen() {
@@ -30,6 +32,8 @@ export default function HomeScreen() {
   const handleCategoryPress = (categoryName: string) => {
     if (categoryName === 'Complain/Feedback') {
       router.push('../complain/complainAndFeedback');
+    } else if (categoryName === "Medicine Reminder") {
+      router.push("../MedicineReminderApp/screens/HomeScreen");
     }
     // Add other category navigation here as needed
   };
