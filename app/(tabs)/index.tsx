@@ -9,6 +9,8 @@ import CategoryCard from '../../components/CategoryCard';
 import ChildHealthIcon from '../../assets/icons/child_health.svg';
 import FirstAidIcon from '../../assets/icons/first_aid.svg';
 import HygieneIcon from '../../assets/icons/hygiene.svg';
+
+import Coronavirus from '../../assets/icons/coronavirus.svg';
 import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
 import MentalHealthIcon from '../../assets/icons/mental_health.svg';
 import NutritionIcon from '../../assets/icons/nutrition.svg';
@@ -21,6 +23,7 @@ import promo from '../../assets/images/promo.png';
 
 
 const categories = [
+  { name: 'Vaccine', icon: <VaccineIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Nutrition', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
   { name: 'Complain/Feedback', icon: <HygieneIcon width={40} height={40} stroke="#2196F3" strokeWidth="2" fill="none" /> },
   { name: 'Child Health', icon: <ChildHealthIcon width={40} height={40} stroke="#FF9800" strokeWidth="2" fill="none" /> },
@@ -28,7 +31,7 @@ const categories = [
   { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
   { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Medicine Reminder', icon: <MedicineReminder width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
-  { name: 'Vaccine', icon: <VaccineIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
+  { name: 'Disease Dashboard', icon: <Coronavirus width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
 ];
 
 export default function HomeScreen() {
@@ -41,6 +44,8 @@ export default function HomeScreen() {
       router.push("../MedicineReminderApp/screens/HomeScreen");
     } else if (categoryName === "Vaccine") {
       router.push("./vaccine/");
+    } else if (categoryName === "Disease Dashboard") {
+      router.push("./disease_dashboard/dashboard");
     }
     // Add other category navigation here as needed
   };

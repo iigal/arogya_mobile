@@ -3,14 +3,19 @@ import QuickActionGrid from '@/components/QuickActionGrid';
 import SeasonSelector from '@/components/SeasonSelector';
 import { Colors } from '@/constants/Colors';
 import { mockData } from '@/constants/Data';
+import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
+
+import { useNavigation } from "@react-navigation/native";
+
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type City = { id: number; name: string; region: string };
 
 export default function Dashboard() {
+  const navigation = useNavigation()
   const router = useRouter();
   const [selectedSeason, setSelectedSeason] = useState('Monsoon');
   const [selectedCity, setSelectedCity] = useState<City | null>(null);
@@ -18,7 +23,7 @@ export default function Dashboard() {
   const handleViewCity = () => {
     if (selectedCity) {
       router.push({
-        pathname: '/screens/city/city-details',
+        pathname: '/disease_dashboard/city/city-details',
         params: { 
           cityName: selectedCity.name,
           cityRegion: selectedCity.region,
@@ -31,16 +36,16 @@ export default function Dashboard() {
   const handleQuickAction = (action: { id: number; title: string; icon: string }) => {
     switch (action.id) {
       case 1: // Active Diseases
-        router.push('/screens/disease/active-diseases');
+        router.push('/disease_dashboard/disease/active-diseases');
         break;
       case 2: // Prevention Tips
-        router.push('/screens/health/prevention-tips');
+        router.push('/disease_dashboard/health/prevention-tips');
         break;
       case 3: // Treatment Guidelines
-        router.push('/screens/health/treatment-guidelines');
+        router.push('/disease_dashboard/health/treatment-guidelines');
         break;
       default:
-        router.push('/screens/disease/disease-info');
+        router.push('/disease_dashboard/disease/disease-info');
     }
   };
 
@@ -48,6 +53,19 @@ export default function Dashboard() {
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Header */}
+        <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  alignItems: "center",
+                  padding: 10,
+                  backgroundColor: "#eee",
+                  borderRadius: 10,
+                }}
+                onPress={() => navigation.goBack()}
+              >
+                <Ionicons name="arrow-back" size={24} color="black" />
+                <Text style={{ marginLeft: 5, fontSize: 16 }}>Back</Text>
+              </TouchableOpacity>
         <LinearGradient
           colors={[Colors.primary, Colors.secondary]}
           style={styles.header}
