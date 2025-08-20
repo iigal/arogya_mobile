@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
->>>>>>> 7125eddbdb568ec52cc5b5a0c94d0b6630892e03
 import { useRouter } from "expo-router";
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -12,23 +10,19 @@ import CategoryCard from '../../components/CategoryCard';
 import ChildHealthIcon from '../../assets/icons/child_health.svg';
 import FirstAidIcon from '../../assets/icons/first_aid.svg';
 import HygieneIcon from '../../assets/icons/hygiene.svg';
-<<<<<<< HEAD
-=======
 
 import Coronavirus from '../../assets/icons/coronavirus.svg';
->>>>>>> 7125eddbdb568ec52cc5b5a0c94d0b6630892e03
 import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
 import MentalHealthIcon from '../../assets/icons/mental_health.svg';
 import NutritionIcon from '../../assets/icons/nutrition.svg';
 import ProfileIcon from '../../assets/icons/profile.svg';
 import SearchIcon from '../../assets/icons/search.svg';
 import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
-<<<<<<< HEAD
 
 
 const categories = [
   { name: 'FreeMedicines', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
-=======
+
 import SignoutIcon from '../../assets/icons/signout.svg';
 import VaccineIcon from '../../assets/icons/vaccine.svg';
 import promo from '../../assets/images/promo.png';
@@ -37,12 +31,11 @@ import promo from '../../assets/images/promo.png';
 const categories = [
   { name: 'Vaccine', icon: <VaccineIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Nutrition', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
->>>>>>> 7125eddbdb568ec52cc5b5a0c94d0b6630892e03
   { name: 'Complain/Feedback', icon: <HygieneIcon width={40} height={40} stroke="#2196F3" strokeWidth="2" fill="none" /> },
   { name: 'Doctors', icon: <ChildHealthIcon width={40} height={40} stroke="#FF9800" strokeWidth="2" fill="none" /> },
   { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} stroke="#9C27B0" strokeWidth="2" fill="none" /> },
   { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
-  { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
+  { name: 'HealthCamp', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Medicine Reminder', icon: <MedicineReminder width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Disease Dashboard', icon: <Coronavirus width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
 ];
@@ -55,15 +48,14 @@ export default function HomeScreen() {
       router.push('../complain/complainAndFeedback');
     } else if (categoryName === "Medicine Reminder") {
       router.push("../MedicineReminderApp/screens/HomeScreen");
-<<<<<<< HEAD
     } else if (categoryName === "FreeMedicines") {
       router.push('../FreeMedicine/');
-=======
     } else if (categoryName === "Vaccine") {
       router.push("./vaccine/");
+    } else if (categoryName === "HealthCamp") {
+      router.push("../healthCamp/");
     } else if (categoryName === "Disease Dashboard") {
       router.push("./disease_dashboard/dashboard");
->>>>>>> 7125eddbdb568ec52cc5b5a0c94d0b6630892e03
     }
     else if (categoryName === "Doctors") {
       router.push("./doctors/");
