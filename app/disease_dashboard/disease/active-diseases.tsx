@@ -91,10 +91,10 @@ export default function ActiveDiseases() {
           {/* Disease List */}
           <Text style={styles.sectionTitle}>Current Disease Outbreaks</Text>
           {activeDiseases.map((disease) => (
-            <TouchableOpacity
+            <View
               key={disease.id}
               style={styles.diseaseCard}
-              onPress={() => router.push('/screens/disease/disease-info')}
+              // onPress={() => router.push('/disease_dashboard/disease/disease-info')}
             >
               <View style={styles.diseaseHeader}>
                 <View style={styles.diseaseInfo}>
@@ -121,7 +121,7 @@ export default function ActiveDiseases() {
                   {disease.trend}
                 </Text>
               </View>
-            </TouchableOpacity>
+            </View>
           ))}
         </View>
       </ScrollView>

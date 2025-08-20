@@ -32,30 +32,30 @@ export default function CityDetails() {
     switch (action.id) {
       case 1: // Symptoms & Transmission
         router.push({
-          pathname: '/screens/city/city-symptoms',
+          pathname: '/disease_dashboard/city/city-symptoms',
           params: routeParams
         });
         break;
       case 2: // Preventive Measures
         router.push({
-          pathname: '/screens/city/city-preventive',
+          pathname: '/disease_dashboard/city/city-preventive',
           params: routeParams
         });
         break;
       case 3: // Treatment Guidelines
         router.push({
-          pathname: '/screens/city/city-treatment',
+          pathname: '/disease_dashboard/city/city-treatment',
           params: routeParams
         });
         break;
       case 4: // Vaccination Information
         router.push({
-          pathname: '/screens/city/city-vaccination',
+          pathname: '/disease_dashboard/city/city-vaccination',
           params: routeParams
         });
         break;
       default:
-        router.push('/screens/disease/disease-info');
+        router.push('/disease_dashboard/disease/disease-info');
     }
   };
 
