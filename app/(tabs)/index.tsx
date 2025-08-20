@@ -26,7 +26,7 @@ const categories = [
   { name: 'Child Health', icon: <ChildHealthIcon width={40} height={40} stroke="#FF9800" strokeWidth="2" fill="none" /> },
   { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} stroke="#9C27B0" strokeWidth="2" fill="none" /> },
   { name: 'First Aid', icon: <FirstAidIcon width={40} height={40} stroke="#F44336" strokeWidth="2" fill="none" /> },
-  { name: 'Seasonal Diseases', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
+  { name: 'HealthCamp', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Medicine Reminder', icon: <MedicineReminder width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Vaccine', icon: <VaccineIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
 ];
@@ -41,6 +41,8 @@ export default function HomeScreen() {
       router.push("../MedicineReminderApp/screens/HomeScreen");
     } else if (categoryName === "Vaccine") {
       router.push("./vaccine/");
+    } else if (categoryName === "HealthCamp") {
+      router.push("../healthCamp/");
     }
     // Add other category navigation here as needed
   };
