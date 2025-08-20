@@ -1,23 +1,23 @@
+import { useRouter } from "expo-router";
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CategoryCard from '../../components/CategoryCard';
-import { useRouter } from "expo-router";
 
 // SVG Icon imports
 import ChildHealthIcon from '../../assets/icons/child_health.svg';
 import FirstAidIcon from '../../assets/icons/first_aid.svg';
 import HygieneIcon from '../../assets/icons/hygiene.svg';
+import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
 import MentalHealthIcon from '../../assets/icons/mental_health.svg';
 import NutritionIcon from '../../assets/icons/nutrition.svg';
 import ProfileIcon from '../../assets/icons/profile.svg';
 import SearchIcon from '../../assets/icons/search.svg';
 import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
-import MedicineReminder from '../../assets/icons/medicine_reminder.svg';
 
 
 const categories = [
-  { name: 'Nutrition', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
+  { name: 'FreeMedicines', icon: <NutritionIcon width={40} height={40} stroke="#4CAF50" strokeWidth="2" fill="none" /> },
   { name: 'Complain/Feedback', icon: <HygieneIcon width={40} height={40} stroke="#2196F3" strokeWidth="2" fill="none" /> },
   { name: 'Child Health', icon: <ChildHealthIcon width={40} height={40} stroke="#FF9800" strokeWidth="2" fill="none" /> },
   { name: 'Mental Health', icon: <MentalHealthIcon width={40} height={40} stroke="#9C27B0" strokeWidth="2" fill="none" /> },
@@ -34,6 +34,8 @@ export default function HomeScreen() {
       router.push('../complain/complainAndFeedback');
     } else if (categoryName === "Medicine Reminder") {
       router.push("../MedicineReminderApp/screens/HomeScreen");
+    } else if (categoryName === "FreeMedicines") {
+      router.push('../FreeMedicine/');
     }
     // Add other category navigation here as needed
   };
@@ -68,9 +70,9 @@ export default function HomeScreen() {
         <Text style={styles.categoryTitle}>Health Features</Text>
         <View style={styles.categoryGrid}>
           {categories.map((category) => (
-            <CategoryCard 
-              key={category.name} 
-              icon={category.icon} 
+            <CategoryCard
+              key={category.name}
+              icon={category.icon}
               name={category.name}
               onPress={() => handleCategoryPress(category.name)}
             />
