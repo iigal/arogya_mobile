@@ -1,0 +1,12 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head -->
+  <circle cx="12" cy="6.5" r="3"/>
+  <!-- Shoulders / Body outline -->
+  <path d="M4 21v-2.5A4.5 4.5 0 0 1 8.5 14h7A4.5 4.5 0 0 1 20 18.5V21"/>
+  <!-- Chest badge (medical cross) -->
+  <rect x="10" y="11.5" width="4" height="4" rx="0.5"/>
+  <path d="M12 12.25v2.5M10.75 13.5h2.5"/>
+  <!-- Stethoscope tubing (subtle detail) -->
+  <path d="M9 9.5c0 1.5-.5 2.5-2 2.5s-2-1-2-2.5"/>
+  <circle cx="5" cy="9.5" r="0.5"/>
+</svg>
