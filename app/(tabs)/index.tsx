@@ -19,8 +19,8 @@ import SearchIcon from '../../assets/icons/search.svg';
 import SeasonalDiseasesIcon from '../../assets/icons/seasonal_diseases.svg';
 import SignoutIcon from '../../assets/icons/signout.svg';
 import VaccineIcon from '../../assets/icons/vaccine.svg';
-import promo from '../../assets/images/promo.png';
-
+// import promo from '../../assets/images/promo.png';
+const promo = require('../../assets/images/promo.png');
 
 const categories = [
   { name: 'Vaccine', icon: <VaccineIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
