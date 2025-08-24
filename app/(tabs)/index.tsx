@@ -1,7 +1,6 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from "expo-router";
-import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CategoryCard from '../../components/CategoryCard';
@@ -38,6 +37,7 @@ const categories = [
   { name: 'HealthCamp', icon: <SeasonalDiseasesIcon width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Medicine Reminder', icon: <MedicineReminder width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
   { name: 'Disease Dashboard', icon: <Coronavirus width={40} height={40} stroke="#607D8B" strokeWidth="2" fill="none" /> },
+  { name: 'Survey Builder', icon: <ProfileIcon width={40} height={40} /> },
 ];
 
 export default function HomeScreen() {
@@ -56,6 +56,8 @@ export default function HomeScreen() {
       router.push("../healthCamp/");
     } else if (categoryName === "Disease Dashboard") {
       router.push("./disease_dashboard/dashboard");
+    } else if (categoryName === 'Survey Builder') {
+      router.push('/survey');
     }
     else if (categoryName === "Doctors") {
       router.push("./doctors/");
